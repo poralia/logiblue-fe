@@ -25,7 +25,7 @@ const autoCompleteCities = () => {
     const autoCompleteJS = new autoComplete({
         selector: "#autoComplete",
         placeHolder: "Enter city name",
-        debounce: 1000,
+        debounce: 250,
         data: {
             src: async (query: string) => {
                 let apiUrl = `${runtimeConfig.public.baseApiUrl}/tracking/cities/`
@@ -69,11 +69,11 @@ onMounted(() => {
     autoCompleteCities()
 })
 
-const selectedCountryHandler = async (event: any) => {
+const selectedCountryHandler = (event: any) => {
     // reset selected category
     selectedCategory.value = ''
 
-    const { data: results } = await useFetch(
+    const { data: results } = useFetch(
         `${runtimeConfig.public.baseApiUrl}/tracking/categories/?country_code=${selectedCountry.value}`, 
         {
             lazy: true,
@@ -99,16 +99,18 @@ const calculate = () => {
         weight: selectedWeight,
     }
 
-    const { pending: pending, data: result } = useFetch(
+    const { pending: pending, data: result, execute: executeCalulate } = useFetch(
         `${runtimeConfig.public.baseApiUrl}/tracking/calculate/`,
         {
             method: 'post',
             lazy: true,
             server: false,
             body: payload,
+            immediate: false,
         }
     )
-
+    
+    executeCalulate()
     calculateResult.value = result
 }
 </script>
@@ -121,7 +123,7 @@ const calculate = () => {
                 <div class="mb-1">Origin</div>
                 <select 
                     v-model="selectedCountry"
-                    @change="selectedCountryHandler($event)"
+                    @change.prevent="selectedCountryHandler($event)"
                     class="border border-neutral-300 px-2 py-2 w-full rounded-lg"
                 >
                     <template v-if="pendingCountry">
