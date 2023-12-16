@@ -20,7 +20,7 @@ const calculateResult = useCalculateResult()
 
                     <div class="block">
                         <div class="text-neutral-600">Destination</div>
-                        <div class="font-semibold">{{ calculateResult.data.destination_details.city_name + ', ' + calculateResult.data.destination_details.province + ' ' + calculateResult.data.destination_details.postal_code }}</div>
+                        <div class="font-semibold">{{ calculateResult.data.destination_details.type + ' ' + calculateResult.data.destination_details.city_name + ', ' + calculateResult.data.destination_details.province + ' ' + calculateResult.data.destination_details.postal_code }}</div>
                     </div>
                 </div>
 
