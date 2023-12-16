@@ -1,9 +1,12 @@
-# Nuxt 3 Minimal Starter
+# Simple logistic freight calulator with Nuxt 3
+
+![image info](./screenshot.png)
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
+This repo related to [this repo](https://github.com/poralia/logiblue). So please run that first before this repo.
 Make sure to install the dependencies:
 
 ```bash
