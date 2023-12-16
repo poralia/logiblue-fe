@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   $production: {
     runtimeConfig: {
       public: {
-        baseApiUrl: 'http://localhost:8000/api'
+        baseApiUrl: 'https://poralia.pythonanywhere.com/api'
       }
     }
   },
