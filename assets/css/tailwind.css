@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.autoComplete_wrapper {
+    display: block;
+    width: 100% !important;
+}

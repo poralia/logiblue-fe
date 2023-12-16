@@ -1,0 +1,1 @@
+export const useCalculateResult = () => useState<any>('calculateResult', () => {})
